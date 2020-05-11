@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <LayoutGrid />
-    <LayoutFlex class="l-m-top" />
+    <LayoutFlex class="l-m-top-60" />
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
   margin-top: 60px;
 }
 
-.l-m-top {
+.l-m-top-60 {
   margin-top: 60px;
 }
 </style>
