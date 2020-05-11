@@ -1,3 +1,5 @@
+> 진행 중
+
 ## 준비하기
 
 ### 컨벤션 설정하기
@@ -12,7 +14,9 @@
 },
 ```
 
-## 노트
+![그리드와 플렉스](./static/images/grid-and-flex.png)
+
+## 그리드와 플렉스
 
 `grid`는 2차원 레이아웃 시스템을 바탕으로 한다. 그리드 컨테이너에서 하위 아이템에 대한 스타일 표현을 정의할 수 있다.
 
@@ -59,18 +63,41 @@
 }
 ```
 
-그리드 시스템을 사용해서 2차원적인 표현을 정의하기 시작하자 더이상 플렉스 속성으로는 그리드 시스템이 가진 레이아웃을 구현하기가 어려워졌다. 그리드 시스템은 열과 행을 인지해서 그리드 라인으로 영역을 나누고 셀을 조정해서 세부적으로 표현할 수 있는 반면에 플렉스 속성은 x축이나 y축으로 아이템을 어떻게 정렬하고 공간을 채울지에 대한 1차원적인 레이아웃을 지원했다.
+### 그리드와 플렉스의 차이
+
+그리드 시스템은 그리드 라인으로 열과 행을 만들고 그것을 채우는 가상의 셀을 그리드 영역으로 사용하여 다양한 레이아웃을 2차원적으로 표현할 수 있는 반면에 플렉스 속성은 x축이나 y축으로 아이템을 연속적으로 정렬하고 어떻게 공간을 채울지에 대한 1차원적인 레이아웃을 지원하는데 차이가 있었다.
+
+### 그리드 속성의 사용
+
+콘텐츠가 동적으로 표현된다면 그리드 아이템을 갯수를 파악하기 어렵기 때문에 고정값 대신에 `grid-auto-{rows, columns}` 속성을 사용해서 컨테이너 표현될 아이템을 유연하게 정의할 수 있다.
 
 ```scss
-.container {
-  &--grid {
-    grid-template-columns: 1fr 2fr 3fr;
-    grid-template-rows: 100px 200px;
+.container--grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(auto, 100px);
+}
+```
+
+- fr(fraction unit): 화면을 나누는 단위. 공간 비율을 분수로 나타낸다.
+- minmax(최소값, 최대값): 최소값 최대값을 통해서 크기를 지정할 수 있다.
+
+그리드 아이템에 `grid-{row, column}` 속성을 사용하면 자유롭게 레이아웃을 표현할 수 있다. 속성 값의 앞자리는 시작 위치, 뒷자리는 종료 위치를 나타낸다. (행과 열의 시작 값은 1부터 시작된다.)
+
+```scss
+.item {
+  &--1 {
+    grid-column: 1 / 4;
+  }
+
+  &--4 {
+    grid-column: 4 / 6;
+    grid-row: 3 / 5;
   }
 }
 ```
 
-## 오류 해결하기 및 TIL: Today I Learn
+## 오류 해결하기
 
 - **module' is not defined.eslint no-undef**
 
@@ -100,12 +127,14 @@
 
 - **에디터에서 줄바꿈을 오류로 인식 한다면**
 
-  VSCode 에디터 오른쪽 하단의 `CRLF`를 `LF` 형태로 바꿔준다.
+  ~~VSCode 에디터 오른쪽 하단의 `CRLF`를 `LF` 형태로 바꿔준다.~~
 
   - CR: Carriage Return
   - LF: Line Feed
 
   > 그런데 애초에 무엇이 이런 문제를 갑자기 발생시켰을까? 코드 포맷팅?
+
+  - https://stackoverflow.com/questions/170961/whats-the-best-crlf-carriage-return-line-feed-handling-strategy-with-git
 
   `.gitattributes`가 알 수 없는 실수로 유실되면서 발생한 이슈였음. LF 형태로 바꾸면 안되고, 깃 속성 파일을 생성하거나 잘 보존해서 해결해야 된다. 그리고 추가로 eslint 규칙에서 프리티어 endOfLine 속성을 auto로 설정한다.
 
@@ -120,11 +149,11 @@
   }
   ```
 
-  - https://stackoverflow.com/questions/170961/whats-the-best-crlf-carriage-return-line-feed-handling-strategy-with-git
-
 ## Reference
 
 - [Read: understanding-css-grid](https://medium.com/sketch-app-sources/understanding-css-grid-ce92b7aa67cb)
 - [Read: 이번에야말로 CSS Grid를 익혀보자](https://studiomeal.com/archives/533)
 - [Link: grid-examples](https://gridbyexample.com/examples/)
-- [Link: flex](https://developer.mozilla.org/ko/docs/Web/CSS/flex)
+- [Read: grid](https://developer.mozilla.org/ko/docs/Web/CSS/grid)
+- [Read: flex](https://developer.mozilla.org/ko/docs/Web/CSS/flex)
+- [Link: caniuse/grid](https://caniuse.com/#search=grid)
