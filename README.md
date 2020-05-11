@@ -12,6 +12,53 @@
 },
 ```
 
+## 노트
+
+`grid`는 2차원 레이아웃 시스템을 바탕으로 한다. 그리드 컨테이너에서 하위 아이템에 대한 스타일 표현을 정의할 수 있다.
+
+```scss
+.container {
+  &--grid {
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    grid-template-rows: 150px;
+    gird-gap: 30px;
+  }
+}
+```
+
+`flex`는 일차원 레이아웃 시스템을 바탕으로 한다. 위에서 작성한 스타일을 외관적으로 동일하게 하려면 아래와 같다. 플랙스 컨테이너에 영향을 받는 플렉스 아이템은 자신을 표현할 때 3가지 세부 상태를 통해 정의할 수 있다.
+
+- flex-grow: 자신이 차지할 공간의 정도를 결정. 기본값은 `0`이다. 소수점이나 양의 정수로 증감을 표현할 수 있다. 예를 들어 0.1 또는 2 처럼 선언
+- flex-shrink: 컨테이너 크기에 맞추어 자신을 축소할지를 결정 (0: 축소하지 않음, 1: 축소함)
+- flex-basis: 플렉스 아이템의 기본 크기를 정의. 컨테이너에서 정의된 `flex-direction` 속성에 따라 높이와 너비로 나타낸다.
+
+축약해서 `flex: flex-grow | flex-shrink | flex-basis`와 같이 선언할 수 있다.
+
+```scss
+.container {
+  &--flex {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+}
+
+.item {
+  margin: 0 (30px / 2);
+  flex: 0 0 250px;
+  width: 250px;
+  height: 150px;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+```
+
 ## 오류 해결하기
 
 - **module' is not defined.eslint no-undef**
