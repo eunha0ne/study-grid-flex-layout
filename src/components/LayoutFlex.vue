@@ -1,5 +1,5 @@
 <template>
-  <div class="container container--grid">
+  <div class="container container--flex">
     <div v-for="i in 5" :key="i" :class="`item item--${i}`">item--{{ i }}</div>
   </div>
 </template>
@@ -15,12 +15,14 @@ export default {
 @import '@/assets/styles/item';
 
 .container {
-  &--grid {
-    display: grid;
-    /* grid-template-columns: 250px 250px 250px 250px 250px 250px; */
-    /* Short-hand: */
-    grid-template-columns: repeat(5, 250px);
-    grid-template-rows: 150px;
+  &--flex {
+    display: flex;
+    flex-direction: row;
   }
+}
+
+.item {
+  width: 250px;
+  height: 150px;
 }
 </style>
