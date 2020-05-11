@@ -91,10 +91,14 @@
 
   VSCode 에디터 오른쪽 하단의 `CRLF`를 `LF` 형태로 바꿔준다.
 
-  > 그런데 애초에 무엇이 이런 문제를 갑자기 발생시켰을까? 코드 포맷팅?
-
   - CR: Carriage Return
   - LF: Line Feed
+
+  > 그런데 애초에 무엇이 이런 문제를 갑자기 발생시켰을까? 코드 포맷팅?
+
+  `.gitattributes`가 알 수 없는 실수로 유실되면서 발생한 이슈였음
+
+  - https://stackoverflow.com/questions/170961/whats-the-best-crlf-carriage-return-line-feed-handling-strategy-with-git
 
 ## Reference
 
