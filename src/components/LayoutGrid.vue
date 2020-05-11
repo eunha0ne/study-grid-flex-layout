@@ -16,9 +16,30 @@ export default {
 <style lang="scss" scoped>
 ::v-deep .container--grid {
   display: grid;
-  // grid-template-columns: repeat(5, 250px); // Short-hand: 250px 250px 250px 250px 250px 250px;
-  grid-template-columns: 1fr 2fr 3fr;
-  grid-template-rows: 100px 200px;
-  grid-gap: 30px;
+  /* Short-hand: 20% 20% 20% 20% 20%; */
+  grid-template-columns: repeat(5, 1fr);
+  /* grid-template-rows: 100px 100px; */
+  grid-auto-rows: minmax(auto, 100px);
+  grid-gap: 10px;
+}
+
+::v-deep .item {
+  &--1 {
+    grid-column: 1 / 4;
+  }
+
+  &--2 {
+    grid-column: 1 / 1;
+    grid-row: 2 / 4;
+  }
+
+  &--4 {
+    grid-column: 4 / 6;
+    grid-row: 3 / 5;
+  }
+
+  &--5 {
+    grid-column: 3 / 6;
+  }
 }
 </style>
