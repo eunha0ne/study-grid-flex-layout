@@ -40,6 +40,15 @@
   </style>
   ```
 
+- **에디터에서 줄바꿈을 오류로 인식 한다면**
+
+  VSCode 에디터 오른쪽 하단의 `CRLF`를 `LF` 형태로 바꿔준다.
+
+  > 그런데 애초에 무엇이 이런 문제를 갑자기 발생시켰을까? 코드 포맷팅?
+
+  - CR: Carriage Return
+  - LF: Line Feed
+
 ## Reference
 
 - [Read: understanding-css-grid](https://medium.com/sketch-app-sources/understanding-css-grid-ce92b7aa67cb)
