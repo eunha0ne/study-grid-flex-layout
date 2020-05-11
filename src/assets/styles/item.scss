@@ -1,0 +1,24 @@
+$backgorund-colors: (
+  1: #2c3043,
+  2: #fc6057,
+  3: #fda061,
+  4: #01a787,
+  5: #1bc1a1,
+  6: #2c3043
+);
+
+@each $key, $value in $backgorund-colors {
+  .item--#{$key} {
+    background: $value;
+  }
+}
+
+.item {
+  border: 1px dashed whitesmoke;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
+}
