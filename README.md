@@ -59,7 +59,18 @@
 }
 ```
 
-## 오류 해결하기
+그리드 시스템을 사용해서 2차원적인 표현을 정의하기 시작하자 더이상 플렉스 속성으로는 그리드 시스템이 가진 레이아웃을 구현하기가 어려워졌다. 그리드 시스템은 열과 행을 인지해서 그리드 라인으로 영역을 나누고 셀을 조정해서 세부적으로 표현할 수 있는 반면에 플렉스 속성은 x축이나 y축으로 아이템을 어떻게 정렬하고 공간을 채울지에 대한 1차원적인 레이아웃을 지원했다.
+
+```scss
+.container {
+  &--grid {
+    grid-template-columns: 1fr 2fr 3fr;
+    grid-template-rows: 100px 200px;
+  }
+}
+```
+
+## 오류 해결하기 및 TIL: Today I Learn
 
 - **module' is not defined.eslint no-undef**
 
@@ -96,7 +107,18 @@
 
   > 그런데 애초에 무엇이 이런 문제를 갑자기 발생시켰을까? 코드 포맷팅?
 
-  `.gitattributes`가 알 수 없는 실수로 유실되면서 발생한 이슈였음
+  `.gitattributes`가 알 수 없는 실수로 유실되면서 발생한 이슈였음. LF 형태로 바꾸면 안되고, 깃 속성 파일을 생성하거나 잘 보존해서 해결해야 된다. 그리고 추가로 eslint 규칙에서 프리티어 endOfLine 속성을 auto로 설정한다.
+
+  ```
+  rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto'
+      }
+    ]
+  }
+  ```
 
   - https://stackoverflow.com/questions/170961/whats-the-best-crlf-carriage-return-line-feed-handling-strategy-with-git
 
@@ -105,3 +127,4 @@
 - [Read: understanding-css-grid](https://medium.com/sketch-app-sources/understanding-css-grid-ce92b7aa67cb)
 - [Read: 이번에야말로 CSS Grid를 익혀보자](https://studiomeal.com/archives/533)
 - [Link: grid-examples](https://gridbyexample.com/examples/)
+- [Link: flex](https://developer.mozilla.org/ko/docs/Web/CSS/flex)
