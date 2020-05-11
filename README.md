@@ -12,9 +12,9 @@
 },
 ```
 
-### 오류 해결하기
+## 오류 해결하기
 
-- module' is not defined.eslint no-undef
+- **module' is not defined.eslint no-undef**
 
   `.eslintrc.js` 파일에 아래 내용을 추가해서 `"node": true` 노드 환경임을 선언한다.
 
@@ -25,3 +25,23 @@
       "node": true
   },
   ```
+
+- **scss 컴파일하기**
+
+  ```
+  npm install -D sass-loader sass
+  ```
+
+  sass 문법과 scss 문법을 잘 가려서 스타일 태그에 선언한다.
+
+  ```html
+  <style lang="scss" scoped>
+    /* ... */
+  </style>
+  ```
+
+## Reference
+
+- [Read: understanding-css-grid](https://medium.com/sketch-app-sources/understanding-css-grid-ce92b7aa67cb)
+- [Read: 이번에야말로 CSS Grid를 익혀보자](https://studiomeal.com/archives/533)
+- [Link: grid-examples](https://gridbyexample.com/examples/)
