@@ -1,7 +1,8 @@
 <template>
   <div id="app">
+    <h1 class="app-title">Study grid and flex layout system.</h1>
     <LayoutGrid />
-    <LayoutFlex class="l-m-top-60" />
+    <LayoutFlex class="l-mg-top-60" />
   </div>
 </template>
 
@@ -25,10 +26,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
-.l-m-top-60 {
+.app-title {
+  margin: 60px 0;
+  padding: 0 30px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.l-mg-top-60 {
   margin-top: 60px;
 }
 </style>

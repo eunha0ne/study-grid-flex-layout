@@ -1,32 +1,45 @@
 <template>
-  <section>
-    <h2>DISPLAY: GRID</h2>
-    <div class="container container--grid">
-      <div v-for="i in 5" :key="i" :class="`item item--${i}`">
-        ITEM--{{ i }}
-      </div>
-    </div>
-  </section>
+  <Container display-type="grid" />
 </template>
 
 <script>
+import Container from './Container'
+
 export default {
-  name: 'LayoutGrid'
+  name: 'LayoutGrid',
+  components: {
+    Container
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/container';
-@import '@/assets/styles/item';
+::v-deep .container--grid {
+  display: grid;
+  /* Short-hand: 20% 20% 20% 20% 20%; */
+  grid-template-columns: repeat(5, 1fr);
+  /* grid-template-rows: 100px 100px; */
+  grid-auto-rows: minmax(auto, 100px);
+  grid-gap: 10px;
+}
 
-.container {
-  &--grid {
-    display: grid;
-    // grid-template-columns: 250px 250px 250px 250px 250px 250px;
-    // Short-hand:
-    grid-template-columns: repeat(5, 250px);
-    grid-template-rows: 150px;
-    grid-gap: 30px;
+::v-deep .item {
+  &--1 {
+    grid-column: 1 / 4;
+  }
+
+  &--2 {
+    grid-column: 1 / 1;
+    grid-row: 2 / 4;
+  }
+
+  &--4 {
+    grid-column: 4 / 6;
+    grid-row: 3 / 5;
+  }
+
+  &--5 {
+    grid-column: 3 / 6;
   }
 }
 </style>

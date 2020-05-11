@@ -1,50 +1,29 @@
 <template>
-  <section>
-    <h2>DISPLAY: FLEX</h2>
-    <div class="container container--flex">
-      <div v-for="i in 5" :key="i" :class="`item item--${i}`">
-        ITEM--{{ i }}
-      </div>
-    </div>
-  </section>
+  <Container display-type="flex" />
 </template>
 
 <script>
+import Container from './Container'
+
 export default {
-  name: 'LayoutGrid'
+  name: 'LayoutFlex',
+  components: {
+    Container
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/container';
-@import '@/assets/styles/item';
-
-.container {
-  &--flex {
-    display: flex;
-    // flex-direction: row;
-    // flex-wrap: nowrap;
-    // Short-hand:
-    flex-flow: row nowrap;
-  }
+::v-deep .container--flex {
+  display: flex;
+  /* Short-hand: flex-direction | flex-wrap */
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
 
-.item {
-  margin: 0 (30px / 2);
-  flex: 0 0 250px;
-  // width: 250px;
+::v-deep .item {
+  margin: 5px;
+  flex: 1 1 calc(33.33% - 10px);
   height: 150px;
-
-  &:first-of-type {
-    margin-left: 0;
-  }
-
-  &:last-of-type {
-    margin-right: 0;
-  }
-}
-
-.item--2 {
-  flex-shrink: 0 !important;
 }
 </style>
