@@ -1,0 +1,18 @@
+$backgorund-colors: (
+  1: #2c3043,
+  2: #fc6057,
+  3: #fda061,
+  4: #01a787,
+  5: #1bc1a1,
+  6: #2c3043
+);
+
+@each $key, $value in $backgorund-colors {
+  .item--#{$key} {
+    background: $value;
+  }
+}
+
+.item {
+  color: white;
+}
