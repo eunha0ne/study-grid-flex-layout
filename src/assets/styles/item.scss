@@ -14,7 +14,11 @@ $backgorund-colors: (
 }
 
 .item {
+  border: 1px dashed whitesmoke;
+  border-radius: 5px;
+  box-sizing: border-box;
   color: white;
   font-weight: bold;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
 }
