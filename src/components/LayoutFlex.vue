@@ -3,7 +3,7 @@
     <h2>DISPLAY: FLEX</h2>
     <div class="container container--flex">
       <div v-for="i in 5" :key="i" :class="`item item--${i}`">
-        ITEM--{{ i }}
+        <span class="item__tag">ITEM--{{ i }}</span>
       </div>
     </div>
   </section>
@@ -22,17 +22,17 @@ export default {
 .container {
   &--flex {
     display: flex;
-    // flex-direction: row;
-    // flex-wrap: nowrap;
-    // Short-hand:
-    flex-flow: row nowrap;
+    /* flex-direction: row; */
+    /* flex-wrap: nowrap; */
+    /* Short-hand: */
+    flex-flow: row wrap;
+    justify-content: flex-start;
   }
 }
 
 .item {
-  margin: 0 (30px / 2);
-  flex: 0 0 250px;
-  // width: 250px;
+  margin: 15px;
+  flex: 0 0 calc(33.33% - 30px);
   height: 150px;
 
   &:first-of-type {
@@ -42,9 +42,9 @@ export default {
   &:last-of-type {
     margin-right: 0;
   }
-}
 
-.item--2 {
-  flex-shrink: 0 !important;
+  &:nth-of-type(3n + 1) {
+    margin-left: 0;
+  }
 }
 </style>
