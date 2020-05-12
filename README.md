@@ -235,7 +235,7 @@ justify-self: space-between;
   - https://stackoverflow.com/questions/170961/whats-the-best-crlf-carriage-return-line-feed-handling-strategy-with-git
 
 ```js
-// .eslint.js
+// .eslintrc.js
 rules: {
   'prettier/prettier': [
     'error',
