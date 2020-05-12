@@ -1,18 +1,14 @@
-## 준비하기
-
-### 컨벤션 설정
-
-`vue cli`로 프로젝트 생성 후, `prettier`와 `esLint`를 적용했다면 `vue cli`에서 생성한 프로젝트의 코딩 컨벤션이 현재 적용한(prettier, esLint) 컨벤션과 다르기 때문에 `npm run serve`를 실행하면 여러 종류의 프리티어 에러 메시지를 출력하게 되면서 정상적으로 실행되지 않을 수 있다.
-
-프로젝트 전체 파일에 대해서 한번에 오류를 정리하는 방법은 아래의 커맨드를 사용하면 좋다.
-
-```json
-"scripts": {
-  "prettier:write": "prettier --write \"src/**/*.{js,vue,scss}\""
-},
-```
-
 ![그리드와 플렉스](./static/images/grid-and-flex.png)
+
+## 시작하기
+
+```bash
+# 설치하기
+npm install
+
+# 실행하기
+npm run serve
+```
 
 ## 그리드와 플렉스
 
@@ -132,8 +128,6 @@
 
 ### 그리드 영역을 이름으로 정의하는 방법
 
-![그리드와 플렉스](./static/images/gird-template-areas.png)
-
 그리드 영역을 이름으로 정의하려면 아래와 같은 방법으로 레이아웃 표를 작성하면 된다.
 
 ```scss
@@ -151,6 +145,8 @@
 ```
 
 위와 같이 그리드 아이템에 레이아웃 표에서 사용한 이름을 매칭시키면 자동으로 영역을 그린다.
+
+![그리드와 플렉스](./static/images/gird-template-areas.png)
 
 ### 아이템 정렬하기
 
@@ -190,6 +186,18 @@ justify-self: space-between;
 모던 브라우저에서 플렉스와 그리드 레이아웃을 지원하고 있지만 IE(인터넷 익스플로러)의 경우에는 아직 미지원되는 부분이 있기 때문에 플렉스와 그리드 시스템을 사용한 레이아웃을 표현할 때는 주의가 필요하다. `can i use`와 `mdn` 문서를 통해서 브라우저 지원 범위를 잘 살펴보고, postCSS와 autoprefixer를 사용한 크로스 브라우징 전략을 사용하도록 한다.
 
 ## 오류 해결하기
+
+- **컨벤션 설정**
+
+  `vue cli`로 프로젝트 생성 후, `prettier`와 `esLint`를 적용했다면 `vue cli`에서 생성한 프로젝트의 코딩 컨벤션이 현재 적용한(prettier, esLint) 컨벤션과 다르기 때문에 `npm run serve`를 실행하면 여러 종류의 프리티어 에러 메시지를 출력하게 되면서 정상적으로 실행되지 않을 수 있다.
+
+  프로젝트 전체 파일에 대해서 한번에 오류를 정리하는 방법은 아래의 커맨드를 사용하면 좋다.
+
+  ```json
+  "scripts": {
+    "prettier:write": "prettier --write \"src/**/*.{js,vue,scss}\""
+  },
+  ```
 
 - **module' is not defined.eslint no-undef**
 
