@@ -16,13 +16,40 @@ export default {
 <style lang="scss" scoped>
 ::v-deep .container--grid {
   display: grid;
-  /* Short-hand: 20% 20% 20% 20% 20%; */
-  grid-template-columns: repeat(5, 1fr);
-  /* grid-template-rows: 100px 100px; */
+  grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(auto, 100px);
   grid-gap: 10px;
+
+  grid-template-areas:
+    'header header header'
+    '   a    main    b   '
+    '   .     .      .   '
+    'footer footer footer';
 }
 
+::v-deep .item {
+  &--1 {
+    grid-area: header;
+  }
+
+  &--2 {
+    grid-area: a;
+  }
+
+  &--3 {
+    grid-area: main;
+  }
+
+  &--4 {
+    grid-area: b;
+  }
+
+  &--5 {
+    grid-area: footer;
+  }
+}
+
+/* gird-{column, row}를 통해서 레이아웃 자유롭게 표현하기
 ::v-deep .item {
   &--1 {
     grid-column: 1 / 4;
@@ -41,5 +68,5 @@ export default {
   &--5 {
     grid-column: 3 / 6;
   }
-}
+} */
 </style>

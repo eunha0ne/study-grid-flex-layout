@@ -16,7 +16,6 @@ export default {
 <style lang="scss" scoped>
 ::v-deep .container--flex {
   display: flex;
-  /* Short-hand: flex-direction | flex-wrap */
   flex-flow: row wrap;
   justify-content: flex-start;
 }
